@@ -1,0 +1,2303 @@
+#%RAML 1.0 DataType 
+type: object
+properties:
+  openapi:
+    type: string
+    example: 3.0.0
+    required: false
+  info:
+    type: object
+    properties:
+      title:
+        type: string
+        example: MailChimp
+        required: false
+      description:
+        type: string
+        example: |-
+
+          Contains all the API's for mailchimp  
+        required: false
+      contact:
+        type: object
+        properties: {}
+      version:
+        type: string
+        example: 1.0.0
+        required: false
+  servers:
+    type: array
+    items:
+      type: object
+      properties:
+        url:
+          type: string
+          example: https://virtserver.swaggerhub.com/Rob226/Mailchimp/1.0.0
+          required: false
+        description:
+          type: string
+          example: SwaggerHub API Auto Mocking
+          required: false
+        variables:
+          type: object
+          properties:
+            dataCenter:
+              type: object
+              properties:
+                description:
+                  type: string
+                  example: users data center for Mailchimp
+                  required: false
+                default:
+                  type: string
+                  example: us2
+                  required: false
+  paths:
+    type: object
+    properties:
+      /campaigns:
+        type: object
+        properties:
+          get:
+            type: object
+            properties:
+              summary:
+                type: string
+                example: Get all campaigns
+                required: false
+              description:
+                type: string
+                example: |-
+
+                  This api will return all the available lists. 
+                required: false
+              operationId:
+                type: string
+                example: GetAllCampaigns
+                required: false
+              parameters:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                      example: since_date_created
+                      required: false
+                    in:
+                      type: string
+                      example: query
+                      required: false
+                    required:
+                      type: boolean
+                      example: false
+                      required: false
+                    style:
+                      type: string
+                      example: form
+                      required: false
+                    explode:
+                      type: boolean
+                      example: true
+                      required: false
+                    schema:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                          example: string
+                          required: false
+                        default:
+                          type: integer
+                          example: 1000
+                          required: false
+                    description:
+                      type: string
+                      example: |-
+                        >-
+                        Limit per request
+                      required: false
+              responses:
+                type: object
+                properties:
+                  '200':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Successfully received data
+                        required: false
+                      content:
+                        type: object
+                        properties:
+                          application/json:
+                            type: object
+                            properties:
+                              schema:
+                                type: object
+                                properties:
+                                  type:
+                                    type: string
+                                    example: object
+                                    required: false
+                                  description:
+                                    type: string
+                                    example: Successfully retrieved all the data
+                                    required: false
+                  '400':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Bad Request-The request is not proper
+                        required: false
+                  '402':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Invalid or missing api key
+                        required: false
+                  '403':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: >-
+                          Forbidden- user is not authorized to access the
+                          resource.
+                        required: false
+                  '404':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Resource not found
+                        required: false
+                  '405':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Method not Allowed
+                        required: false
+                  '414':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Resource Nesting Too Deep
+                        required: false
+                  '422':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: InvaildMethodOverride or RequestedFieldInvaild
+                        required: false
+                  '429':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Too Many Requests
+                        required: false
+                  '500':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Internal Server Error
+                        required: false
+                  '503':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: CompliaanceRelated- The method has been disabled.
+                        required: false
+              security:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    Auth:
+                      type: array
+                      items: {}
+                    ApiKeyAuth:
+                      type: array
+                      items: {}
+      /lists:
+        type: object
+        properties:
+          get:
+            type: object
+            properties:
+              summary:
+                type: string
+                example: Get all Lists
+                required: false
+              description:
+                type: string
+                example: |-
+
+                  This api will return all the available lists. 
+                required: false
+              operationId:
+                type: string
+                example: GetAllList
+                required: false
+              parameters:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                      example: since_date_created
+                      required: false
+                    in:
+                      type: string
+                      example: query
+                      required: false
+                    required:
+                      type: boolean
+                      example: false
+                      required: false
+                    style:
+                      type: string
+                      example: form
+                      required: false
+                    explode:
+                      type: boolean
+                      example: true
+                      required: false
+                    schema:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                          example: string
+                          required: false
+                        default:
+                          type: integer
+                          example: 1000
+                          required: false
+                    description:
+                      type: string
+                      example: |-
+                        >-
+                        Limit per request
+                      required: false
+              responses:
+                type: object
+                properties:
+                  '200':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Successfully received data
+                        required: false
+                      content:
+                        type: object
+                        properties:
+                          application/json:
+                            type: object
+                            properties:
+                              schema:
+                                type: object
+                                properties:
+                                  type:
+                                    type: string
+                                    example: object
+                                    required: false
+                                  description:
+                                    type: string
+                                    example: Successfully retrieved all the data
+                                    required: false
+                  '400':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Bad Request-The request is not proper
+                        required: false
+                  '402':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Invalid or missing api key
+                        required: false
+                  '403':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: >-
+                          Forbidden- user is not authorized to access the
+                          resource.
+                        required: false
+                  '404':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Resource not found
+                        required: false
+                  '405':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Method not Allowed
+                        required: false
+                  '414':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Resource Nesting Too Deep
+                        required: false
+                  '422':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: InvaildMethodOverride or RequestedFieldInvaild
+                        required: false
+                  '429':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Too Many Requests
+                        required: false
+                  '500':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Internal Server Error
+                        required: false
+                  '503':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: CompliaanceRelated- The method has been disabled.
+                        required: false
+              security:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    Auth:
+                      type: array
+                      items: {}
+                    ApiKeyAuth:
+                      type: array
+                      items: {}
+      /reports:
+        type: object
+        properties:
+          get:
+            type: object
+            properties:
+              summary:
+                type: string
+                example: Get all Reports
+                required: false
+              description:
+                type: string
+                example: |-
+
+                  This api will return all the available lists. 
+                required: false
+              operationId:
+                type: string
+                example: GetReports
+                required: false
+              parameters:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                      example: since_send_time
+                      required: false
+                    in:
+                      type: string
+                      example: query
+                      required: false
+                    required:
+                      type: boolean
+                      example: false
+                      required: false
+                    style:
+                      type: string
+                      example: form
+                      required: false
+                    explode:
+                      type: boolean
+                      example: true
+                      required: false
+                    schema:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                          example: string
+                          required: false
+                        default:
+                          type: integer
+                          example: 1000
+                          required: false
+                    description:
+                      type: string
+                      example: |-
+                        >-
+                        Limit per request
+                      required: false
+              responses:
+                type: object
+                properties:
+                  '200':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Successfully received data
+                        required: false
+                      content:
+                        type: object
+                        properties:
+                          application/json:
+                            type: object
+                            properties:
+                              schema:
+                                type: object
+                                properties:
+                                  type:
+                                    type: string
+                                    example: object
+                                    required: false
+                                  description:
+                                    type: string
+                                    example: Successfully retrieved all the data
+                                    required: false
+                  '400':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Bad Request-The request is not proper
+                        required: false
+                  '402':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Invalid or missing api key
+                        required: false
+                  '403':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: >-
+                          Forbidden- user is not authorized to access the
+                          resource.
+                        required: false
+                  '404':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Resource not found
+                        required: false
+                  '405':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Method not Allowed
+                        required: false
+                  '414':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Resource Nesting Too Deep
+                        required: false
+                  '422':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: InvaildMethodOverride or RequestedFieldInvaild
+                        required: false
+                  '429':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Too Many Requests
+                        required: false
+                  '500':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Internal Server Error
+                        required: false
+                  '503':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: CompliaanceRelated- The method has been disabled.
+                        required: false
+              security:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    Auth:
+                      type: array
+                      items: {}
+                    ApiKeyAuth:
+                      type: array
+                      items: {}
+      /templates:
+        type: object
+        properties:
+          get:
+            type: object
+            properties:
+              summary:
+                type: string
+                example: Get all Templates
+                required: false
+              description:
+                type: string
+                example: |-
+
+                  This api will return all the available lists. 
+                required: false
+              operationId:
+                type: string
+                example: GetTemplates
+                required: false
+              parameters:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                      example: since_date_created
+                      required: false
+                    in:
+                      type: string
+                      example: query
+                      required: false
+                    required:
+                      type: boolean
+                      example: false
+                      required: false
+                    style:
+                      type: string
+                      example: form
+                      required: false
+                    explode:
+                      type: boolean
+                      example: true
+                      required: false
+                    schema:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                          example: string
+                          required: false
+                        default:
+                          type: integer
+                          example: 1000
+                          required: false
+                    description:
+                      type: string
+                      example: |-
+                        >-
+                        Limit per request
+                      required: false
+              responses:
+                type: object
+                properties:
+                  '200':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Successfully received data
+                        required: false
+                      content:
+                        type: object
+                        properties:
+                          application/json:
+                            type: object
+                            properties:
+                              schema:
+                                type: object
+                                properties:
+                                  type:
+                                    type: string
+                                    example: object
+                                    required: false
+                                  description:
+                                    type: string
+                                    example: Successfully retrieved all the data
+                                    required: false
+                  '400':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Bad Request-The request is not proper
+                        required: false
+                  '402':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Invalid or missing api key
+                        required: false
+                  '403':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: >-
+                          Forbidden- user is not authorized to access the
+                          resource.
+                        required: false
+                  '404':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Resource not found
+                        required: false
+                  '405':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Method not Allowed
+                        required: false
+                  '414':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Resource Nesting Too Deep
+                        required: false
+                  '422':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: InvaildMethodOverride or RequestedFieldInvaild
+                        required: false
+                  '429':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Too Many Requests
+                        required: false
+                  '500':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Internal Server Error
+                        required: false
+                  '503':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: CompliaanceRelated- The method has been disabled.
+                        required: false
+              security:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    Auth:
+                      type: array
+                      items: {}
+                    ApiKeyAuth:
+                      type: array
+                      items: {}
+      /ecommerce/stores/{store_id}/orders:
+        type: object
+        properties:
+          get:
+            type: object
+            properties:
+              summary:
+                type: string
+                example: Get all orders of a store
+                required: false
+              description:
+                type: string
+                example: |-
+
+                  This api will return all the available lists. 
+                required: false
+              operationId:
+                type: string
+                example: Getorders
+                required: false
+              parameters:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                      example: customer_id
+                      required: false
+                    in:
+                      type: string
+                      example: query
+                      required: false
+                    required:
+                      type: boolean
+                      example: false
+                      required: false
+                    style:
+                      type: string
+                      example: form
+                      required: false
+                    explode:
+                      type: boolean
+                      example: true
+                      required: false
+                    schema:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                          example: string
+                          required: false
+                        default:
+                          type: integer
+                          example: 1000
+                          required: false
+                    description:
+                      type: string
+                      example: |-
+                        >-
+                        Limit per request
+                      required: false
+              responses:
+                type: object
+                properties:
+                  '200':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Successfully received data
+                        required: false
+                      content:
+                        type: object
+                        properties:
+                          application/json:
+                            type: object
+                            properties:
+                              schema:
+                                type: object
+                                properties:
+                                  type:
+                                    type: string
+                                    example: object
+                                    required: false
+                                  description:
+                                    type: string
+                                    example: Successfully retrieved all the data
+                                    required: false
+                  '400':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Bad Request-The request is not proper
+                        required: false
+                  '402':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Invalid or missing api key
+                        required: false
+                  '403':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: >-
+                          Forbidden- user is not authorized to access the
+                          resource.
+                        required: false
+                  '404':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Resource not found
+                        required: false
+                  '405':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Method not Allowed
+                        required: false
+                  '414':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Resource Nesting Too Deep
+                        required: false
+                  '422':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: InvaildMethodOverride or RequestedFieldInvaild
+                        required: false
+                  '429':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Too Many Requests
+                        required: false
+                  '500':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Internal Server Error
+                        required: false
+                  '503':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: CompliaanceRelated- The method has been disabled.
+                        required: false
+              security:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    Auth:
+                      type: array
+                      items: {}
+                    ApiKeyAuth:
+                      type: array
+                      items: {}
+      /ecommerce/stores:
+        type: object
+        properties:
+          get:
+            type: object
+            properties:
+              summary:
+                type: string
+                example: Get all stores
+                required: false
+              description:
+                type: string
+                example: |-
+
+                  This api will return all the available lists. 
+                required: false
+              operationId:
+                type: string
+                example: GetStores
+                required: false
+              parameters:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                      example: count
+                      required: false
+                    in:
+                      type: string
+                      example: query
+                      required: false
+                    description:
+                      type: string
+                      example: |-
+                        >-
+                        Limit per request
+                      required: false
+                    required:
+                      type: boolean
+                      example: false
+                      required: false
+                    style:
+                      type: string
+                      example: form
+                      required: false
+                    explode:
+                      type: boolean
+                      example: true
+                      required: false
+                    schema:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                          example: integer
+                          required: false
+                        default:
+                          type: integer
+                          example: 1000
+                          required: false
+              responses:
+                type: object
+                properties:
+                  '200':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Successfully received data
+                        required: false
+                      content:
+                        type: object
+                        properties:
+                          application/json:
+                            type: object
+                            properties:
+                              schema:
+                                type: object
+                                properties:
+                                  type:
+                                    type: string
+                                    example: object
+                                    required: false
+                                  description:
+                                    type: string
+                                    example: Successfully retrieved all the data
+                                    required: false
+                  '400':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Bad Request-The request is not proper
+                        required: false
+                  '402':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Invalid or missing api key
+                        required: false
+                  '403':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: >-
+                          Forbidden- user is not authorized to access the
+                          resource.
+                        required: false
+                  '404':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Resource not found
+                        required: false
+                  '405':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Method not Allowed
+                        required: false
+                  '414':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Resource Nesting Too Deep
+                        required: false
+                  '422':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: InvaildMethodOverride or RequestedFieldInvaild
+                        required: false
+                  '429':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Too Many Requests
+                        required: false
+                  '500':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Internal Server Error
+                        required: false
+                  '503':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: CompliaanceRelated- The method has been disabled.
+                        required: false
+              security:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    Auth:
+                      type: array
+                      items: {}
+                    ApiKeyAuth:
+                      type: array
+                      items: {}
+      /lists/{list_id}/webhooks:
+        type: object
+        properties:
+          get:
+            type: object
+            properties:
+              summary:
+                type: string
+                example: Get list of all webhooks for a list
+                required: false
+              description:
+                type: string
+                example: |-
+
+                  This api will return all the available lists. 
+                required: false
+              operationId:
+                type: string
+                example: GetAllWebhooks
+                required: false
+              parameters:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                      example: list_id
+                      required: false
+                    in:
+                      type: string
+                      example: path
+                      required: false
+                    description:
+                      type: string
+                      example: |-
+                        >-
+                        List id of audience
+                      required: false
+                    required:
+                      type: boolean
+                      example: true
+                      required: false
+                    style:
+                      type: string
+                      example: simple
+                      required: false
+                    explode:
+                      type: boolean
+                      example: false
+                      required: false
+                    schema:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                          example: string
+                          required: false
+              responses:
+                type: object
+                properties:
+                  '200':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Successfully received data
+                        required: false
+                      content:
+                        type: object
+                        properties:
+                          application/json:
+                            type: object
+                            properties:
+                              schema:
+                                type: object
+                                properties:
+                                  type:
+                                    type: string
+                                    example: object
+                                    required: false
+                                  description:
+                                    type: string
+                                    example: Successfully retrieved all the data
+                                    required: false
+                  '400':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Bad Request-The request is not proper
+                        required: false
+                  '402':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Invalid or missing api key
+                        required: false
+                  '403':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: >-
+                          Forbidden- user is not authorized to access the
+                          resource.
+                        required: false
+                  '404':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Resource not found
+                        required: false
+                  '405':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Method not Allowed
+                        required: false
+                  '414':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Resource Nesting Too Deep
+                        required: false
+                  '422':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: InvaildMethodOverride or RequestedFieldInvaild
+                        required: false
+                  '429':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Too Many Requests
+                        required: false
+                  '500':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Internal Server Error
+                        required: false
+                  '503':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: CompliaanceRelated- The method has been disabled.
+                        required: false
+              security:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    Auth:
+                      type: array
+                      items: {}
+                    ApiKeyAuth:
+                      type: array
+                      items: {}
+      /lists/{list_id1}/webhooks:
+        type: object
+        properties:
+          post:
+            type: object
+            properties:
+              summary:
+                type: string
+                example: creates a webhook of the list.
+                required: false
+              operationId:
+                type: string
+                example: createWebhookSubscription
+                required: false
+              parameters:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                      example: list_id1
+                      required: false
+                    in:
+                      type: string
+                      example: path
+                      required: false
+                    description:
+                      type: string
+                      example: |-
+                        >-
+                        List id of audience
+                      required: false
+                    required:
+                      type: boolean
+                      example: true
+                      required: false
+                    style:
+                      type: string
+                      example: simple
+                      required: false
+                    explode:
+                      type: boolean
+                      example: false
+                      required: false
+                    schema:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                          example: string
+                          required: false
+              requestBody:
+                type: object
+                properties:
+                  content:
+                    type: object
+                    properties:
+                      object:
+                        type: object
+                        properties:
+                          schema:
+                            type: object
+                            properties:
+                              $ref:
+                                type: string
+                                example: '#/components/schemas/Payload'
+                                required: false
+                  required:
+                    type: boolean
+                    example: true
+                    required: false
+              responses:
+                type: object
+                properties:
+                  '200':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Created or Send successfully
+                        required: false
+                      content:
+                        type: object
+                        properties:
+                          application/json:
+                            type: object
+                            properties:
+                              schema:
+                                type: object
+                                properties:
+                                  $ref:
+                                    type: string
+                                    example: '#/components/schemas/Payload'
+                                    required: false
+              security:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    Auth:
+                      type: array
+                      items: {}
+                    ApiKeyAuth:
+                      type: array
+                      items: {}
+      /lists/{list_id}/webhooks/{webhook_id}:
+        type: object
+        properties:
+          delete:
+            type: object
+            properties:
+              summary:
+                type: string
+                example: Delete a webhook
+                required: false
+              description:
+                type: string
+                example: |-
+
+                  This api will return all the available lists. 
+                required: false
+              operationId:
+                type: string
+                example: DeleteWebhook
+                required: false
+              parameters:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                      example: list_id
+                      required: false
+                    in:
+                      type: string
+                      example: path
+                      required: false
+                    description:
+                      type: string
+                      example: |-
+                        >-
+                        List id of audience
+                      required: false
+                    required:
+                      type: boolean
+                      example: true
+                      required: false
+                    style:
+                      type: string
+                      example: simple
+                      required: false
+                    explode:
+                      type: boolean
+                      example: false
+                      required: false
+                    schema:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                          example: string
+                          required: false
+              responses:
+                type: object
+                properties:
+                  '200':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Successfully received data
+                        required: false
+                      content:
+                        type: object
+                        properties:
+                          application/json:
+                            type: object
+                            properties:
+                              schema:
+                                type: object
+                                properties:
+                                  type:
+                                    type: string
+                                    example: object
+                                    required: false
+                                  description:
+                                    type: string
+                                    example: Successfully retrieved all the data
+                                    required: false
+                  '400':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Bad Request-The request is not proper
+                        required: false
+                  '402':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Invalid or missing api key
+                        required: false
+                  '403':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: >-
+                          Forbidden- user is not authorized to access the
+                          resource.
+                        required: false
+                  '404':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Resource not found
+                        required: false
+                  '405':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Method not Allowed
+                        required: false
+                  '414':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Resource Nesting Too Deep
+                        required: false
+                  '422':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: InvaildMethodOverride or RequestedFieldInvaild
+                        required: false
+                  '429':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Too Many Requests
+                        required: false
+                  '500':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Internal Server Error
+                        required: false
+                  '503':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: CompliaanceRelated- The method has been disabled.
+                        required: false
+              security:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    Auth:
+                      type: array
+                      items: {}
+                    ApiKeyAuth:
+                      type: array
+                      items: {}
+      /lists/{list_id1}/webhooks/{webhook_id}:
+        type: object
+        properties:
+          get:
+            type: object
+            properties:
+              summary:
+                type: string
+                example: Get details of a webhook
+                required: false
+              description:
+                type: string
+                example: |-
+
+                  This api will return all the available lists. 
+                required: false
+              operationId:
+                type: string
+                example: DeleteWebhookId
+                required: false
+              parameters:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                      example: list_id1
+                      required: false
+                    in:
+                      type: string
+                      example: path
+                      required: false
+                    description:
+                      type: string
+                      example: |-
+                        >-
+                        List id of audience
+                      required: false
+                    required:
+                      type: boolean
+                      example: true
+                      required: false
+                    style:
+                      type: string
+                      example: simple
+                      required: false
+                    explode:
+                      type: boolean
+                      example: false
+                      required: false
+                    schema:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                          example: string
+                          required: false
+              responses:
+                type: object
+                properties:
+                  '200':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Successfully received data
+                        required: false
+                      content:
+                        type: object
+                        properties:
+                          application/json:
+                            type: object
+                            properties:
+                              schema:
+                                type: object
+                                properties:
+                                  type:
+                                    type: string
+                                    example: object
+                                    required: false
+                                  description:
+                                    type: string
+                                    example: Successfully retrieved all the data
+                                    required: false
+                  '400':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Bad Request-The request is not proper
+                        required: false
+                  '402':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Invalid or missing api key
+                        required: false
+                  '403':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: >-
+                          Forbidden- user is not authorized to access the
+                          resource.
+                        required: false
+                  '404':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Resource not found
+                        required: false
+                  '405':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Method not Allowed
+                        required: false
+                  '414':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Resource Nesting Too Deep
+                        required: false
+                  '422':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: InvaildMethodOverride or RequestedFieldInvaild
+                        required: false
+                  '429':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Too Many Requests
+                        required: false
+                  '500':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Internal Server Error
+                        required: false
+                  '503':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: CompliaanceRelated- The method has been disabled.
+                        required: false
+              security:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    Auth:
+                      type: array
+                      items: {}
+                    ApiKeyAuth:
+                      type: array
+                      items: {}
+      /lists/{list_id2}/webhooks/{webhook_id}:
+        type: object
+        properties:
+          patch:
+            type: object
+            properties:
+              summary:
+                type: string
+                example: Delete a webhook
+                required: false
+              description:
+                type: string
+                example: |-
+
+                  This api will return all the available lists. 
+                required: false
+              operationId:
+                type: string
+                example: UpdateWebhook
+                required: false
+              parameters:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                      example: list_id2
+                      required: false
+                    in:
+                      type: string
+                      example: path
+                      required: false
+                    description:
+                      type: string
+                      example: |-
+                        >-
+                        List id of audience
+                      required: false
+                    required:
+                      type: boolean
+                      example: true
+                      required: false
+                    style:
+                      type: string
+                      example: simple
+                      required: false
+                    explode:
+                      type: boolean
+                      example: false
+                      required: false
+                    schema:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                          example: string
+                          required: false
+              responses:
+                type: object
+                properties:
+                  '200':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Successfully received data
+                        required: false
+                      content:
+                        type: object
+                        properties:
+                          application/json:
+                            type: object
+                            properties:
+                              schema:
+                                type: object
+                                properties:
+                                  type:
+                                    type: string
+                                    example: object
+                                    required: false
+                                  description:
+                                    type: string
+                                    example: Successfully retrieved all the data
+                                    required: false
+                  '400':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Bad Request-The request is not proper
+                        required: false
+                  '402':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Invalid or missing api key
+                        required: false
+                  '403':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: >-
+                          Forbidden- user is not authorized to access the
+                          resource.
+                        required: false
+                  '404':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Resource not found
+                        required: false
+                  '405':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Method not Allowed
+                        required: false
+                  '414':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Resource Nesting Too Deep
+                        required: false
+                  '422':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: InvaildMethodOverride or RequestedFieldInvaild
+                        required: false
+                  '429':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Too Many Requests
+                        required: false
+                  '500':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Internal Server Error
+                        required: false
+                  '503':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: CompliaanceRelated- The method has been disabled.
+                        required: false
+              security:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    Auth:
+                      type: array
+                      items: {}
+                    ApiKeyAuth:
+                      type: array
+                      items: {}
+      /lists/{list_id3}/segments:
+        type: object
+        properties:
+          get:
+            type: object
+            properties:
+              summary:
+                type: string
+                example: Get Tags
+                required: false
+              description:
+                type: string
+                example: |-
+
+                  This api will return all the available tags. 
+                required: false
+              operationId:
+                type: string
+                example: GetTags
+                required: false
+              parameters:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                      example: list_id3
+                      required: false
+                    in:
+                      type: string
+                      example: path
+                      required: false
+                    description:
+                      type: string
+                      example: |-
+                        >-
+                        List id of audience
+                      required: false
+                    required:
+                      type: boolean
+                      example: true
+                      required: false
+                    style:
+                      type: string
+                      example: simple
+                      required: false
+                    explode:
+                      type: boolean
+                      example: false
+                      required: false
+                    schema:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                          example: string
+                          required: false
+                        default:
+                          type: string
+                          example: static
+                          required: false
+              responses:
+                type: object
+                properties:
+                  '200':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Successfully received data
+                        required: false
+                      content:
+                        type: object
+                        properties:
+                          application/json:
+                            type: object
+                            properties:
+                              schema:
+                                type: object
+                                properties:
+                                  type:
+                                    type: string
+                                    example: object
+                                    required: false
+                                  description:
+                                    type: string
+                                    example: Successfully retrieved all the data
+                                    required: false
+                  '400':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Bad Request-The request is not proper
+                        required: false
+                  '402':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Invalid or missing api key
+                        required: false
+                  '403':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: >-
+                          Forbidden- user is not authorized to access the
+                          resource.
+                        required: false
+                  '404':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Resource not found
+                        required: false
+                  '405':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Method not Allowed
+                        required: false
+                  '414':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Resource Nesting Too Deep
+                        required: false
+                  '422':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: InvaildMethodOverride or RequestedFieldInvaild
+                        required: false
+                  '429':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Too Many Requests
+                        required: false
+                  '500':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Internal Server Error
+                        required: false
+                  '503':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: CompliaanceRelated- The method has been disabled.
+                        required: false
+              security:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    Auth:
+                      type: array
+                      items: {}
+                    ApiKeyAuth:
+                      type: array
+                      items: {}
+      /ping:
+        type: object
+        properties:
+          get:
+            type: object
+            properties:
+              responses:
+                type: object
+                properties:
+                  '200':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Successfully received data
+                        required: false
+                      content:
+                        type: object
+                        properties:
+                          application/json:
+                            type: object
+                            properties:
+                              schema:
+                                type: object
+                                properties:
+                                  type:
+                                    type: string
+                                    example: object
+                                    required: false
+                                  description:
+                                    type: string
+                                    example: Successfully retrieved all the data
+                                    required: false
+                  '400':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Bad Request-The request is not proper
+                        required: false
+                  '402':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Invalid or missing api key
+                        required: false
+                  '403':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: >-
+                          Forbidden- user is not authorized to access the
+                          resource.
+                        required: false
+                  '404':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Resource not found
+                        required: false
+                  '405':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Method not Allowed
+                        required: false
+                  '414':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Resource Nesting Too Deep
+                        required: false
+                  '422':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: InvaildMethodOverride or RequestedFieldInvaild
+                        required: false
+                  '429':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Too Many Requests
+                        required: false
+                  '500':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: Internal Server Error
+                        required: false
+                  '503':
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        example: CompliaanceRelated- The method has been disabled.
+                        required: false
+              security:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    Auth:
+                      type: array
+                      items: {}
+                    ApiKeyAuth:
+                      type: array
+                      items: {}
+  components:
+    type: object
+    properties:
+      schemas:
+        type: object
+        properties:
+          Payload:
+            type: object
+            properties:
+              type:
+                type: string
+                example: object
+                required: false
+              properties:
+                type: object
+                properties:
+                  url:
+                    type: object
+                    properties:
+                      type:
+                        type: string
+                        example: string
+                        required: false
+                      description:
+                        type: string
+                        example: Webhook url
+                        required: false
+                  events:
+                    type: object
+                    properties:
+                      $ref:
+                        type: string
+                        example: '#/components/schemas/Payload_events'
+                        required: false
+          Payload_events:
+            type: object
+            properties:
+              properties:
+                type: object
+                properties:
+                  subscribe:
+                    type: object
+                    properties:
+                      type:
+                        type: string
+                        example: boolean
+                        required: false
+                      default:
+                        type: boolean
+                        example: true
+                        required: false
+                  unsubscribe:
+                    type: object
+                    properties:
+                      type:
+                        type: string
+                        example: boolean
+                        required: false
+                      default:
+                        type: boolean
+                        example: true
+                        required: false
+                  profile:
+                    type: object
+                    properties:
+                      type:
+                        type: string
+                        example: boolean
+                        required: false
+                      default:
+                        type: boolean
+                        example: true
+                        required: false
+                  upemail:
+                    type: object
+                    properties:
+                      type:
+                        type: string
+                        example: boolean
+                        required: false
+                      default:
+                        type: boolean
+                        example: false
+                        required: false
+                  cleaned:
+                    type: object
+                    properties:
+                      type:
+                        type: string
+                        example: boolean
+                        required: false
+                      default:
+                        type: boolean
+                        example: false
+                        required: false
+                  campaign:
+                    type: object
+                    properties:
+                      type:
+                        type: string
+                        example: boolean
+                        required: false
+                      default:
+                        type: boolean
+                        example: false
+                        required: false
+      securitySchemes:
+        type: object
+        properties:
+          Auth:
+            type: object
+            properties:
+              type:
+                type: string
+                example: oauth2
+                required: false
+              flows:
+                type: object
+                properties:
+                  authorizationCode:
+                    type: object
+                    properties:
+                      authorizationUrl:
+                        type: string
+                        example: https://login.mailchimp.com/oauth2/authorize
+                        required: false
+                      tokenUrl:
+                        type: string
+                        example: https://login.mailchimp.com/oauth2/token
+                        required: false
+                      scopes:
+                        type: object
+                        properties: {}
+          ApiKeyAuth:
+            type: object
+            properties:
+              type:
+                type: string
+                example: apiKey
+                required: false
+              name:
+                type: string
+                example: Authorization
+                required: false
+              in:
+                type: string
+                example: header
+                required: false
