@@ -1,0 +1,1969 @@
+openapi: 3.0.0 
+
+# Added by API Auto Mocking Plugin 
+
+ 
+
+info: 
+
+  title: MailChimp 
+
+  description: >- 
+
+    Contains all the API's for mailchimp  
+
+  contact: {} 
+
+  version: 1.0.0 
+
+ 
+
+servers: 
+
+  # Added by API Auto Mocking Plugin 
+
+  # Added by API Auto Mocking Plugin 
+
+  # Added by API Auto Mocking Plugin
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/Rob226/Mailchimp/1.0.0
+  - description: SwaggerHub API Auto Mocking 
+
+    url: https://virtserver.swaggerhub.com/Rob226/myswagger/3.0.0 
+
+  - url: 'https://{dataCenter}.api.mailchimp.com/3.0'  
+
+    variables: 
+
+      dataCenter: 
+
+        default: us2 
+
+        description: users data center for Mailchimp 
+
+ 
+
+ 
+
+paths: 
+
+ 
+
+  /campaigns: 
+
+    get: 
+
+      security: 
+
+        - Auth: [] 
+
+        - ApiKeyAuth: [] 
+
+      summary: Get all campaigns 
+
+      description: >- 
+
+       This api will return all the available lists. 
+
+      operationId: GetAllCampaigns 
+
+      parameters: 
+
+       - name: since_date_created 
+
+         in: query 
+
+         required: false 
+
+         schema: 
+
+          type: string 
+
+            
+
+       - name: count 
+
+         in: query 
+
+         required: false 
+
+         description: '>- 
+
+         Limit per request' 
+
+          
+
+         schema: 
+
+          type: integer 
+
+          default: 1000 
+
+         
+
+       - name: offset 
+
+         in: query 
+
+         required: false 
+
+         schema: 
+
+          type: integer 
+
+          default: 0 
+
+       
+
+       - name: before_send_time 
+
+         in: query 
+
+         required: false 
+
+         schema: 
+
+           type: string 
+
+            
+
+       - name: since_send_time 
+
+         in: query 
+
+         required: false 
+
+         schema: 
+
+           type: string   
+
+            
+
+       - name: list_id 
+
+         in: query 
+
+         required: false 
+
+         schema: 
+
+           type: string 
+
+      responses: 
+
+        '200': 
+
+          description: Successfully received data 
+
+          headers: {} 
+
+          content: 
+
+            application/json: 
+
+              schema: 
+
+                type: object 
+
+                description: Successfully retrieved all the data 
+
+           
+
+        '400': 
+
+          description: Bad Request-The request is not proper 
+
+           
+
+        '402': 
+
+          description: Invalid or missing api key 
+
+           
+
+        '403': 
+
+          description: Forbidden- user is not authorized to access the resource. 
+
+           
+
+        '404':  
+
+          description: Resource not found 
+
+                     
+
+        '405': 
+
+          description: Method not Allowed 
+
+           
+
+        '414': 
+
+          description: Resource Nesting Too Deep 
+
+           
+
+        '422':  
+
+          description: InvaildMethodOverride or RequestedFieldInvaild 
+
+           
+
+        '429': 
+
+          description: Too Many Requests 
+
+           
+
+        '500':  
+
+          description: Internal Server Error 
+
+                     
+
+        '503':  
+
+          description: CompliaanceRelated- The method has been disabled. 
+
+           
+
+  /lists: 
+
+    get: 
+
+      security: 
+
+        - Auth: [] 
+
+        - ApiKeyAuth: [] 
+
+      summary: Get all Lists 
+
+      description: >- 
+
+       This api will return all the available lists. 
+
+      operationId: GetAllList 
+
+      parameters: 
+
+       - name: since_date_created 
+
+         in: query 
+
+         required: false 
+
+         schema: 
+
+          type: string 
+
+ 
+
+            
+
+       - name: count 
+
+         in: query 
+
+         required: false 
+
+         description: '>- 
+
+         Limit per request' 
+
+          
+
+         schema: 
+
+          type: integer 
+
+          default: 1000 
+
+         
+
+       - name: offset 
+
+         in: query 
+
+         required: false 
+
+         schema: 
+
+          type: integer 
+
+          default: 0 
+
+       
+
+       - name: before_date_created 
+
+         in: query 
+
+         required: false 
+
+         schema: 
+
+           type: string 
+
+            
+
+       - name: has_ecommerce_store 
+
+         in: query 
+
+         required: false 
+
+         schema: 
+
+           type: string   
+
+ 
+
+      responses: 
+
+        '200': 
+
+          description: Successfully received data 
+
+          headers: {} 
+
+          content: 
+
+            application/json: 
+
+              schema: 
+
+                type: object 
+
+                description: Successfully retrieved all the data           
+
+        '400': 
+
+          description: Bad Request-The request is not proper 
+
+           
+
+        '402': 
+
+          description: Invalid or missing api key 
+
+           
+
+        '403': 
+
+          description: Forbidden- user is not authorized to access the resource. 
+
+           
+
+        '404':  
+
+          description: Resource not found 
+
+                     
+
+        '405': 
+
+          description: Method not Allowed 
+
+           
+
+        '414': 
+
+          description: Resource Nesting Too Deep 
+
+           
+
+        '422':  
+
+          description: InvaildMethodOverride or RequestedFieldInvaild 
+
+           
+
+        '429': 
+
+          description: Too Many Requests 
+
+           
+
+        '500':  
+
+          description: Internal Server Error 
+
+                     
+
+        '503':  
+
+          description: CompliaanceRelated- The method has been disabled.    
+
+   
+
+  /reports: 
+
+    get: 
+
+      security: 
+
+        - Auth: [] 
+
+        - ApiKeyAuth: [] 
+
+      summary: Get all Reports 
+
+      description: >- 
+
+       This api will return all the available lists. 
+
+      operationId: GetReports 
+
+      parameters: 
+
+       - name: since_send_time 
+
+         in: query 
+
+         required: false 
+
+         schema: 
+
+          type: string 
+
+ 
+
+            
+
+       - name: count 
+
+         in: query 
+
+         required: false 
+
+         description: '>- 
+
+         Limit per request' 
+
+          
+
+         schema: 
+
+          type: integer 
+
+          default: 1000 
+
+         
+
+       - name: offset 
+
+         in: query 
+
+         required: false 
+
+         schema: 
+
+          type: integer 
+
+          default: 0 
+
+       
+
+       - name: type 
+
+         in: query 
+
+         required: false 
+
+         schema: 
+
+           type: string 
+
+            
+
+       - name: before_send_time 
+
+         in: query 
+
+         required: false 
+
+         schema: 
+
+           type: string   
+
+ 
+
+      responses: 
+
+        '200': 
+
+          description: Successfully received data 
+
+          headers: {} 
+
+          content: 
+
+            application/json: 
+
+              schema: 
+
+                type: object 
+
+                description: Successfully retrieved all the data 
+
+           
+
+        '400': 
+
+          description: Bad Request-The request is not proper 
+
+           
+
+        '402': 
+
+          description: Invalid or missing api key 
+
+           
+
+        '403': 
+
+          description: Forbidden- user is not authorized to access the resource. 
+
+           
+
+        '404':  
+
+          description: Resource not found 
+
+                     
+
+        '405': 
+
+          description: Method not Allowed 
+
+           
+
+        '414': 
+
+          description: Resource Nesting Too Deep 
+
+           
+
+        '422':  
+
+          description: InvaildMethodOverride or RequestedFieldInvaild 
+
+           
+
+        '429': 
+
+          description: Too Many Requests 
+
+           
+
+        '500':  
+
+          description: Internal Server Error 
+
+                     
+
+        '503':  
+
+          description: CompliaanceRelated- The method has been disabled.            
+
+       
+
+  /templates: 
+
+    get: 
+
+      security: 
+
+        - Auth: [] 
+
+        - ApiKeyAuth: [] 
+
+      summary: Get all Templates 
+
+      description: >- 
+
+       This api will return all the available lists. 
+
+      operationId: GetTemplates 
+
+      parameters: 
+
+       - name: since_date_created 
+
+         in: query 
+
+         required: false 
+
+         schema: 
+
+          type: string 
+
+ 
+
+            
+
+       - name: count 
+
+         in: query 
+
+         required: false 
+
+         description: '>- 
+
+         Limit per request' 
+
+          
+
+         schema: 
+
+          type: integer 
+
+          default: 1000 
+
+         
+
+       - name: offset 
+
+         in: query 
+
+         required: false 
+
+         schema: 
+
+          type: integer 
+
+          default: 0 
+
+       
+
+       - name: type 
+
+         in: query 
+
+         required: false 
+
+         schema: 
+
+           type: string 
+
+            
+
+       - name: before_date_created 
+
+         in: query 
+
+         required: false 
+
+         schema: 
+
+           type: string   
+
+ 
+
+       - name: category 
+
+         in: query 
+
+         required: false 
+
+         schema: 
+
+           type: string 
+
+            
+
+      responses: 
+
+        '200': 
+
+          description: Successfully received data 
+
+          headers: {} 
+
+          content: 
+
+            application/json: 
+
+              schema: 
+
+                type: object 
+
+                description: Successfully retrieved all the data 
+
+           
+
+        '400': 
+
+          description: Bad Request-The request is not proper 
+
+           
+
+        '402': 
+
+          description: Invalid or missing api key 
+
+           
+
+        '403': 
+
+          description: Forbidden- user is not authorized to access the resource. 
+
+           
+
+        '404':  
+
+          description: Resource not found 
+
+                     
+
+        '405': 
+
+          description: Method not Allowed 
+
+           
+
+        '414': 
+
+          description: Resource Nesting Too Deep 
+
+           
+
+        '422':  
+
+          description: InvaildMethodOverride or RequestedFieldInvaild 
+
+           
+
+        '429': 
+
+          description: Too Many Requests 
+
+           
+
+        '500':  
+
+          description: Internal Server Error 
+
+                     
+
+        '503':  
+
+          description: CompliaanceRelated- The method has been disabled. 
+
+           
+
+  /ecommerce/stores/{store_id}/orders: 
+
+    get: 
+
+      security: 
+
+        - Auth: [] 
+
+        - ApiKeyAuth: [] 
+
+      summary: Get all orders of a store 
+
+      description: >- 
+
+       This api will return all the available lists. 
+
+      operationId: Getorders 
+
+      parameters: 
+
+       - name: customer_id 
+
+         in: query 
+
+         required: false 
+
+         schema: 
+
+          type: string 
+
+ 
+
+            
+
+       - name: count 
+
+         in: query 
+
+         required: false 
+
+         description: '>- 
+
+         Limit per request' 
+
+          
+
+         schema: 
+
+          type: integer 
+
+          default: 1000 
+
+         
+
+       - name: offset 
+
+         in: query 
+
+         required: false 
+
+         schema: 
+
+          type: integer 
+
+          default: 0 
+
+       
+
+       - name: store_id 
+
+         in: path 
+
+         required: true 
+
+         schema: 
+
+           type: string 
+
+            
+
+       - name: has_outreach 
+
+         in: query 
+
+         required: false 
+
+         schema: 
+
+           type: string   
+
+ 
+
+       - name: campaign_id 
+
+         in: query 
+
+         required: false 
+
+         schema: 
+
+           type: string 
+
+            
+
+      responses: 
+
+        '200': 
+
+          description: Successfully received data 
+
+          headers: {} 
+
+          content: 
+
+            application/json: 
+
+              schema: 
+
+                type: object 
+
+                description: Successfully retrieved all the data          
+
+        '400': 
+
+          description: Bad Request-The request is not proper 
+
+           
+
+        '402': 
+
+          description: Invalid or missing api key 
+
+           
+
+        '403': 
+
+          description: Forbidden- user is not authorized to access the resource. 
+
+           
+
+        '404':  
+
+          description: Resource not found 
+
+                     
+
+        '405': 
+
+          description: Method not Allowed 
+
+           
+
+        '414': 
+
+          description: Resource Nesting Too Deep 
+
+           
+
+        '422':  
+
+          description: InvaildMethodOverride or RequestedFieldInvaild 
+
+           
+
+        '429': 
+
+          description: Too Many Requests 
+
+           
+
+        '500':  
+
+          description: Internal Server Error 
+
+                     
+
+        '503':  
+
+          description: CompliaanceRelated- The method has been disabled.            
+
+           
+
+  /ecommerce/stores: 
+
+    get: 
+
+      security: 
+
+        - Auth: [] 
+
+        - ApiKeyAuth: [] 
+
+      summary: Get all stores 
+
+      description: >- 
+
+       This api will return all the available lists. 
+
+      operationId: GetStores 
+
+      parameters: 
+
+       - name: count 
+
+         in: query 
+
+         required: false 
+
+         description: '>- 
+
+         Limit per request' 
+
+          
+
+         schema: 
+
+          type: integer 
+
+          default: 1000 
+
+         
+
+       - name: offset 
+
+         in: query 
+
+         required: false 
+
+         schema: 
+
+          type: integer 
+
+          default: 0 
+
+ 
+
+      responses: 
+
+        '200': 
+
+          description: Successfully received data 
+
+          headers: {} 
+
+          content: 
+
+            application/json: 
+
+              schema: 
+
+                type: object 
+
+                description: Successfully retrieved all the data         
+
+        '400': 
+
+          description: Bad Request-The request is not proper 
+
+           
+
+        '402': 
+
+          description: Invalid or missing api key 
+
+           
+
+        '403': 
+
+          description: Forbidden- user is not authorized to access the resource. 
+
+           
+
+        '404':  
+
+          description: Resource not found 
+
+                     
+
+        '405': 
+
+          description: Method not Allowed 
+
+           
+
+        '414': 
+
+          description: Resource Nesting Too Deep 
+
+           
+
+        '422':  
+
+          description: InvaildMethodOverride or RequestedFieldInvaild 
+
+           
+
+        '429': 
+
+          description: Too Many Requests 
+
+           
+
+        '500':  
+
+          description: Internal Server Error 
+
+                     
+
+        '503':  
+
+          description: CompliaanceRelated- The method has been disabled.            
+
+       
+
+  /lists/{list_id}/webhooks: 
+
+    get: 
+
+      security: 
+
+        - Auth: [] 
+
+        - ApiKeyAuth: [] 
+
+      summary: Get list of all webhooks for a list 
+
+      description: >- 
+
+       This api will return all the available lists. 
+
+      operationId: GetAllWebhooks 
+
+      parameters: 
+
+       - name: list_id 
+
+         in: path 
+
+         required: true 
+
+         description: '>- 
+
+         List id of audience' 
+
+          
+
+         schema: 
+
+          type: string 
+
+ 
+
+      responses: 
+
+        '200': 
+
+          description: Successfully received data 
+
+          headers: {} 
+
+          content: 
+
+            application/json: 
+
+              schema: 
+
+                type: object 
+
+                description: Successfully retrieved all the data         
+
+        '400': 
+
+          description: Bad Request-The request is not proper 
+
+           
+
+        '402': 
+
+          description: Invalid or missing api key 
+
+           
+
+        '403': 
+
+          description: Forbidden- user is not authorized to access the resource. 
+
+           
+
+        '404':  
+
+          description: Resource not found 
+
+                     
+
+        '405': 
+
+          description: Method not Allowed 
+
+           
+
+        '414': 
+
+          description: Resource Nesting Too Deep 
+
+           
+
+        '422':  
+
+          description: InvaildMethodOverride or RequestedFieldInvaild 
+
+           
+
+        '429': 
+
+          description: Too Many Requests 
+
+           
+
+        '500':  
+
+          description: Internal Server Error 
+
+                     
+
+        '503':  
+
+          description: CompliaanceRelated- The method has been disabled.            
+
+           
+
+  /lists/{list_id1}/webhooks: 
+
+    post: 
+
+      security: 
+
+        - Auth: [] 
+
+        - ApiKeyAuth: [] 
+
+      summary: creates a webhook of the list. 
+
+      operationId: createWebhookSubscription 
+
+      parameters: 
+
+        - name: list_id1 
+
+          in: path 
+
+          required: true 
+
+          description: '>- 
+
+           List id of audience' 
+
+          
+
+          schema: 
+
+            type: string 
+
+           
+
+      requestBody: 
+
+        content: 
+
+         object: 
+
+          schema: 
+
+            $ref: '#/components/schemas/Payload' 
+
+        required: true 
+
+           
+
+      responses: 
+
+       "200": 
+
+         description: Created or Send successfully 
+
+         content: 
+
+          application/json: 
+
+            schema: 
+
+              $ref: '#/components/schemas/Payload' 
+
+       
+
+      
+
+  /lists/{list_id}/webhooks/{webhook_id}: 
+
+    delete: 
+
+      security: 
+
+        - Auth: [] 
+
+        - ApiKeyAuth: [] 
+
+      summary: Delete a webhook 
+
+      description: >- 
+
+       This api will return all the available lists. 
+
+      operationId: DeleteWebhook 
+
+      parameters: 
+
+       - name: list_id 
+
+         in: path 
+
+         required: true 
+
+         description: '>- 
+
+         List id of audience' 
+
+          
+
+         schema: 
+
+          type: string 
+
+       
+
+       - name: webhook_id 
+
+         in: path 
+
+         required: true 
+
+         description: '>- 
+
+         Id of webhook to delete' 
+
+          
+
+         schema: 
+
+          type: string 
+
+ 
+
+      responses: 
+
+        '200': 
+
+          description: Successfully received data 
+
+          headers: {} 
+
+          content: 
+
+            application/json: 
+
+              schema: 
+
+                type: object 
+
+                description: Successfully retrieved all the data         
+
+        '400': 
+
+          description: Bad Request-The request is not proper 
+
+           
+
+        '402': 
+
+          description: Invalid or missing api key 
+
+           
+
+        '403': 
+
+          description: Forbidden- user is not authorized to access the resource. 
+
+           
+
+        '404':  
+
+          description: Resource not found 
+
+                     
+
+        '405': 
+
+          description: Method not Allowed 
+
+           
+
+        '414': 
+
+          description: Resource Nesting Too Deep 
+
+           
+
+        '422':  
+
+          description: InvaildMethodOverride or RequestedFieldInvaild 
+
+           
+
+        '429': 
+
+          description: Too Many Requests 
+
+           
+
+        '500':  
+
+          description: Internal Server Error 
+
+                     
+
+        '503':  
+
+          description: CompliaanceRelated- The method has been disabled.                
+
+         
+
+  /lists/{list_id1}/webhooks/{webhook_id}: 
+
+    get: 
+
+      security: 
+
+        - Auth: [] 
+
+        - ApiKeyAuth: [] 
+
+      summary: Get details of a webhook 
+
+      description: >- 
+
+       This api will return all the available lists. 
+
+      operationId: DeleteWebhookId 
+
+      parameters: 
+
+       - name: list_id1 
+
+         in: path 
+
+         required: true 
+
+         description: '>- 
+
+         List id of audience' 
+
+          
+
+         schema: 
+
+          type: string 
+
+       
+
+       - name: webhook_id 
+
+         in: path 
+
+         required: true 
+
+         description: '>- 
+
+         Id of webhook to delete' 
+
+          
+
+         schema: 
+
+          type: string 
+
+ 
+
+      responses: 
+
+        '200': 
+
+          description: Successfully received data 
+
+          headers: {} 
+
+          content: 
+
+            application/json: 
+
+              schema: 
+
+                type: object 
+
+                description: Successfully retrieved all the data         
+
+        '400': 
+
+          description: Bad Request-The request is not proper 
+
+           
+
+        '402': 
+
+          description: Invalid or missing api key 
+
+           
+
+        '403': 
+
+          description: Forbidden- user is not authorized to access the resource. 
+
+           
+
+        '404':  
+
+          description: Resource not found 
+
+                     
+
+        '405': 
+
+          description: Method not Allowed 
+
+           
+
+        '414': 
+
+          description: Resource Nesting Too Deep 
+
+           
+
+        '422':  
+
+          description: InvaildMethodOverride or RequestedFieldInvaild 
+
+           
+
+        '429': 
+
+          description: Too Many Requests 
+
+           
+
+        '500':  
+
+          description: Internal Server Error 
+
+                     
+
+        '503':  
+
+          description: CompliaanceRelated- The method has been disabled.                
+
+   
+
+  /lists/{list_id2}/webhooks/{webhook_id}: 
+
+    patch: 
+
+      security: 
+
+        - Auth: [] 
+
+        - ApiKeyAuth: [] 
+
+      summary: Delete a webhook 
+
+      description: >- 
+
+       This api will return all the available lists. 
+
+      operationId: UpdateWebhook 
+
+      parameters: 
+
+       - name: list_id2 
+
+         in: path 
+
+         required: true 
+
+         description: '>- 
+
+         List id of audience' 
+
+          
+
+         schema: 
+
+          type: string 
+
+       
+
+       - name: webhook_id 
+
+         in: path 
+
+         required: true 
+
+         description: '>- 
+
+         Id of webhook to delete' 
+
+          
+
+         schema: 
+
+          type: string 
+
+ 
+
+      responses: 
+
+        '200': 
+
+          description: Successfully received data 
+
+          headers: {} 
+
+          content: 
+
+            application/json: 
+
+              schema: 
+
+                type: object 
+
+                description: Successfully retrieved all the data         
+
+        '400': 
+
+          description: Bad Request-The request is not proper 
+
+           
+
+        '402': 
+
+          description: Invalid or missing api key 
+
+           
+
+        '403': 
+
+          description: Forbidden- user is not authorized to access the resource. 
+
+           
+
+        '404':  
+
+          description: Resource not found 
+
+                     
+
+        '405': 
+
+          description: Method not Allowed 
+
+           
+
+        '414': 
+
+          description: Resource Nesting Too Deep 
+
+           
+
+        '422':  
+
+          description: InvaildMethodOverride or RequestedFieldInvaild 
+
+           
+
+        '429': 
+
+          description: Too Many Requests 
+
+           
+
+        '500':  
+
+          description: Internal Server Error 
+
+                     
+
+        '503':  
+
+          description: CompliaanceRelated- The method has been disabled.                
+
+      
+
+  /lists/{list_id3}/segments: 
+
+    get: 
+
+      security: 
+
+        - Auth: [] 
+
+        - ApiKeyAuth: [] 
+
+      summary: Get Tags 
+
+      description: >- 
+
+       This api will return all the available tags. 
+
+      operationId: GetTags 
+
+      parameters: 
+
+       - name: list_id3 
+
+         in: path 
+
+         required: true 
+
+         description: '>- 
+
+         List id of audience' 
+
+          
+
+         schema: 
+
+          type: string 
+
+       
+
+       - name: type 
+
+         in: query 
+
+         required: true 
+
+         description: '>- 
+
+         type of tag' 
+
+          
+
+         schema: 
+
+          type: string 
+
+          default: "static" 
+
+ 
+
+      responses: 
+
+        '200': 
+
+          description: Successfully received data 
+
+          headers: {} 
+
+          content: 
+
+            application/json: 
+
+              schema: 
+
+                type: object 
+
+                description: Successfully retrieved all the data         
+
+        '400': 
+
+          description: Bad Request-The request is not proper 
+
+           
+
+        '402': 
+
+          description: Invalid or missing api key 
+
+           
+
+        '403': 
+
+          description: Forbidden- user is not authorized to access the resource. 
+
+           
+
+        '404':  
+
+          description: Resource not found 
+
+                     
+
+        '405': 
+
+          description: Method not Allowed 
+
+           
+
+        '414': 
+
+          description: Resource Nesting Too Deep 
+
+           
+
+        '422':  
+
+          description: InvaildMethodOverride or RequestedFieldInvaild 
+
+           
+
+        '429': 
+
+          description: Too Many Requests 
+
+           
+
+        '500':  
+
+          description: Internal Server Error 
+
+                     
+
+        '503':  
+
+          description: CompliaanceRelated- The method has been disabled.     
+
+
+  /ping: 
+
+    get: 
+
+      security: 
+
+        - Auth: [] 
+
+        - ApiKeyAuth: [] 
+
+ 
+
+      responses: 
+
+        '200': 
+
+          description: Successfully received data 
+
+          headers: {} 
+
+          content: 
+
+            application/json: 
+
+              schema: 
+
+                type: object 
+
+                description: Successfully retrieved all the data         
+
+        '400': 
+
+          description: Bad Request-The request is not proper 
+
+           
+
+        '402': 
+
+          description: Invalid or missing api key 
+
+           
+
+        '403': 
+
+          description: Forbidden- user is not authorized to access the resource. 
+
+           
+
+        '404':  
+
+          description: Resource not found 
+
+                     
+
+        '405': 
+
+          description: Method not Allowed 
+
+           
+
+        '414': 
+
+          description: Resource Nesting Too Deep 
+
+           
+
+        '422':  
+
+          description: InvaildMethodOverride or RequestedFieldInvaild 
+
+           
+
+        '429': 
+
+          description: Too Many Requests 
+
+           
+
+        '500':  
+
+          description: Internal Server Error 
+
+                     
+
+        '503':  
+
+          description: CompliaanceRelated- The method has been disabled.            
+
+           
+
+components: 
+
+  schemas: 
+
+    Payload: 
+
+      type: object 
+
+      properties: 
+
+        url: 
+
+          type: string 
+
+          description: Webhook url 
+
+        events: 
+
+          properties: 
+
+            subscribe: 
+
+              type: boolean 
+
+              default: true 
+
+            unsubscribe: 
+
+              type: boolean 
+
+              default: true 
+
+            profile: 
+
+              type: boolean 
+
+              default: true 
+
+            upemail: 
+
+              type: boolean 
+
+              default: false 
+
+            cleaned: 
+
+              type: boolean 
+
+              default: false 
+
+            campaign: 
+
+              type: boolean 
+
+              default: false 
+
+ 
+
+  securitySchemes: 
+
+    Auth: 
+
+      type: oauth2 
+
+      flows: 
+
+        authorizationCode: 
+
+          authorizationUrl: 
+
+           https://login.mailchimp.com/oauth2/authorize 
+
+          tokenUrl: https://login.mailchimp.com/oauth2/token 
+
+          scopes: {} 
+
+     
+
+           
+
+    ApiKeyAuth:      
+
+     # <-- arbitrary name for the security scheme 
+
+      type: apiKey 
+
+      in: header 
+
+      name: Authorization
